@@ -70,6 +70,9 @@ namespace RPG
 
             Random run = new Random();
 
+            Console.WriteLine("Zadej jméno:");
+            string jmeno = Console.ReadLine();
+
             string[] schopnosti = { "STR", "DEX", "INT", "STA" };
             schopnosti[0] = ("Vzal jsi brigádu u dřevorbců a rubal stromy jako o závod");
             schopnosti[1] = ("Rozhodl jsi se roznášet poštu a při tom jsi se snažil pokořit rekord");
@@ -78,6 +81,7 @@ namespace RPG
 
             while (zivot == true)
             {
+                Console.WriteLine($"jmenuješ se {jmeno}");
                 Console.WriteLine($"síla = {atributy["STR"]}");
                 Console.WriteLine($"obratnost = {atributy["DEX"]}");
                 Console.WriteLine($"inteligence = {atributy["INT"]}");
@@ -127,19 +131,19 @@ namespace RPG
                         Console.WriteLine("jaký lektvar si koupíš?");
                         Console.Write("síly - ");
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("50");
+                        Console.WriteLine("25");
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.Write("výdrže - ");
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("50");
+                        Console.WriteLine("25");
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.Write("obratnosti - ");
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("50");
+                        Console.WriteLine("25");
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.Write("inteligence - ");
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("50");
+                        Console.WriteLine("25");
                         Console.ForegroundColor = ConsoleColor.White;
                         koupě = Console.ReadLine();
                         if (koupě == "síly" && money >= 25)
@@ -198,7 +202,7 @@ namespace RPG
                     Console.WriteLine($"- obratnost = {obratnost2 = level * run.Next(1, 11)}");
                     Console.WriteLine($"- inteligence = {inteligence2 = level * run.Next(1, 11)}");
                     Console.WriteLine($"- výdrž = {vydrz2 = level * run.Next(1, 11)}");
-                    Console.WriteLine("protivník číslo 2");
+                    Console.WriteLine("protivník číslo 3");
                     Console.WriteLine($"- síla = {sila3 = level * run.Next(1, 11)}");
                     Console.WriteLine($"- obratnost = {obratnost3 = level * run.Next(1, 11)}");
                     Console.WriteLine($"- inteligence = {inteligence3 = level * run.Next(1, 11)}");
@@ -347,7 +351,7 @@ namespace RPG
                     if (cisloukolu == 1)
                     {
                         atributy["DEX"] += 1;
-                        Console.WriteLine("obratnos se zvyšuje o 1");
+                        Console.WriteLine("obratnost se zvyšuje o 1");
                     }
                     if (cisloukolu == 2)
                     {
@@ -409,10 +413,6 @@ namespace RPG
                             atributy["STA"] += atributy["STA"] + perk;
                             perk -= 1;
                         }
-                        else
-                        {
-                            Console.WriteLine("nedokázal jsi se soustředit");
-                        }
                     }
                     if (spanekmed == "spát")
                     {
@@ -433,8 +433,10 @@ namespace RPG
                     string chram = Console.ReadLine();
                     if (chram == "ano")
                     {
+                        int zdravichram = atributy["STA"] * 10;
+                        zdravichram -= zdravi;
+                        money -= zdravichram;
                         zdravi = atributy["STA"] * 10;
-                        money -= zdravi;
                         Console.WriteLine("Jsi zase plný života, ale s prázdnou peněženkou");
                     }
                     if (chram == "ano" || chram != "ano")
@@ -442,8 +444,11 @@ namespace RPG
                         Console.WriteLine("vracíš se na náměstí");
                         Thread.Sleep(1500);
                     }
+                    Console.Clear();
                 }//done
             }//probably done //I hope there are no bugs
         }
     }
 }
+//pracovali : Šindler, Nezastrčil, Flusmann, DR. Mráček
+//skupina : T5
