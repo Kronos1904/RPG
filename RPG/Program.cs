@@ -270,9 +270,13 @@ namespace RPG
                                 Console.ForegroundColor= ConsoleColor.Magenta;
                                 Console.WriteLine($"unavil jsi se na {unava2 += 25}%");
                                 Console.ForegroundColor = ConsoleColor.Yellow;
-                                Console.WriteLine($"vyhrál jsi {money += 100} zlatáků");
+                                int moneyarena = 100;
+                                int xparena = 15;
+                                Console.WriteLine($"vyhrál jsi {100} zlatáků");
+                                money += moneyarena;
                                 Console.ForegroundColor = ConsoleColor.Blue;
-                                Console.WriteLine($"Z boje jsi si odnesl {xp += 15} zkušeností");
+                                Console.WriteLine($"Z boje jsi si odnesl {15} zkušeností");
+                                xp += xparena;
                                 Console.ForegroundColor = ConsoleColor.White;
                             }
                             if (zdravi <= 0)
